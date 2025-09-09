@@ -1,4 +1,4 @@
-# DS Post with Apache Cassandra
+# DS Products with Apache Cassandra
 
 Projeto didático ministrado pelo professor Dr. Nelio Alves no capítulo 8: Workshop NoSQL Cassandra referenete ao módulo Java Spring Reference.
 
