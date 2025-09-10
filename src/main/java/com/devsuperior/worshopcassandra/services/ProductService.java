@@ -28,14 +28,23 @@ public class ProductService {
 		Optional<Product> result = repository.findById(id);
 		return result.orElseThrow(() -> new ResourceNotFoundException("Id não encontrado"));
 	}
-	
+
 	public List<ProductDTO> findByDepartment(String department) {
 		List<Product> list;
 		if (department.equals("")) {
 			list = repository.findAll();
-		}
-		else {
+		} else {
 			list = repository.findByDepartment(department);
+		}
+		return list.stream().map(x -> new ProductDTO(x)).collect(Collectors.toList());
+	}
+
+	public List<ProductDTO> findByDescription(String text) {
+		List<Product> list;
+		if (text.equals("")) {
+			list = repository.findAll();
+		} else {
+			list = repository.findByDescription("%" + text + "%");
 		}
 		return list.stream().map(x -> new ProductDTO(x)).collect(Collectors.toList());
 	}
